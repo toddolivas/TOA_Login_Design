@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Todd Olivas & Associates, Inc. Login Page -->
+  <!-- Version: 1.0.0 -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOA Login Server</title>
+    <link rel="icon" type="image/x-icon" href="../images/TOA-Logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Mobile navigation overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    
+    <div class="modal" id="forgotPasswordModal" style="display: none">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Reset Your Password</h2>
+        <p>
+          Enter your email address and we'll send you instructions to reset your
+          password.
+        </p>
+        <div class="modal-form">
+          <div class="form_input_container">
+            <span class="material-symbols-outlined">email</span>
+            <input
+              type="email"
+              id="resetEmail"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+          <div class="modal-buttons">
+            <button type="button" id="sendResetEmail" class="modal-btn primary">
+              <span class="material-symbols-outlined">send</span>
+              Send Reset Link
+            </button>
+            <button type="button" id="cancelReset" class="modal-btn secondary">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="wrapper">
+        <div class="left_container_content">
+          <div class="left_container_box">
+            <!-- Login Form -->
+            <div class="left_content mobile" id="mobile_login_container">
+              <div class="form_wrapper">
+                <div class="logo">
+                  <img
+                    src="../images/TOA-Logo-Full.png"
+                    alt="TOA Logo"
+                    srcset=""
+                  />
+                </div>
+                <form action="login.php" method="POST">
+                  <h3 class="title">TO&A MODULE LOGIN</h3>
+                  <label for="mobile_username">Username:</label>
+                  <div class="form_input_container">
+                    <span class="material-symbols-outlined"
+                      >account_circle</span
+                    >
+                    <input type="text" id="mobile_username" name="username" required />
+                  </div>
+                  <label for="mobile_password">Password:</label>
+                  <div class="form_input_container">
+                    <span class="material-symbols-outlined">lock</span>
+                    <input
+                      type="password"
+                      id="mobile_password"
+                      name="password"
+                      required
+                    />
+                    <span
+                      class="material-symbols-outlined password-toggle"
+                      >visibility_off</span
+                    >
+                  </div>
+                  <div class="form_input_container">
+                    <button type="submit">
+                      <span class="material-symbols-outlined">login</span> Login
+                    </button>
+                  </div>
+                  <div class="forgot-password-container">
+                    <a
+                      href="#"
+                      class="forgot-password-link"
+                    >
+                      <span class="material-symbols-outlined">help</span>
+                      Forgot Password?
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- Intro -->
+            <div class="left_content intro" id="intro_container" style="display: none">
+              <h2>
+                <span>Services we provide </span>| We match attorneys with
+                freelance court reporters, interpreters, videographers &
+                conference suites.
+              </h2>
+            </div>
+            <!-- Social media posts -->
+            <div
+              class="left_content juicer_container"
+              id="juicer_container"
+              style="display: none"
+            >
+              <div class="content_wrapper">
+                <h2>Latest Social Media Posts</h2>
+                <p>
+                  Connect with us on social media and see our latest updates!
+                </p>
+                <div class="social-feed">
+                  <div class="social-posts-demo">
+                    <div class="social-post">
+                      <div class="post-header">
+                        <img
+                          src="../images/TOA-Logo.png"
+                          alt="TOA"
+                          class="profile-pic"
+                        />
+                        <div class="post-info">
+                          <h4>Todd Olivas & Associates</h4>
+                          <span>@toddolivas</span>
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <p>
+                          🏠 New property listing! Beautiful 3-bedroom home in
+                          prime location. Contact us for more details!
+                        </p>
+                        <div class="post-image">
+                          <div class="placeholder-image">
+                            📸 Social Media Image
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="social-post">
+                      <div class="post-header">
+                        <img
+                          src="../images/TOA-Logo.png"
+                          alt="TOA"
+                          class="profile-pic"
+                        />
+                        <div class="post-info">
+                          <h4>Todd Olivas & Associates</h4>
+                          <span>@toddolivas</span>
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <p>
+                          ✨ Another successful closing! Congratulations to our
+                          happy clients on their new home!
+                        </p>
+                        <div class="post-image">
+                          <div class="placeholder-image">
+                            📸 Social Media Image
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="social-post">
+                      <div class="post-header">
+                        <img
+                          src="../images/TOA-Logo.png"
+                          alt="TOA"
+                          class="profile-pic"
+                        />
+                        <div class="post-info">
+                          <h4>Todd Olivas & Associates</h4>
+                          <span>@toddolivas</span>
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <p>
+                          🎉 Thank you to all our amazing clients! Your trust in
+                          us means everything.
+                        </p>
+                        <div class="post-image">
+                          <div class="placeholder-image">
+                            📸 Social Media Image
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="deployment-note">
+                    <p>
+                      <strong>Note:</strong> This shows demo content for
+                      localhost development.
+                    </p>
+                    <p>
+                      On live server, replace with actual social media widget:
+                    </p>
+                    <code
+                      >&lt;ul class="juicer-feed"
+                      data-feed-id="toddolivas"&gt;&lt;/ul&gt;</code
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Contact Container -->
+            <div
+              class="left_content contact_container"
+              id="contact_container"
+              style="display: none"
+            >
+              <div class="content_wrapper">
+                <div class="contact_section">
+                  <h2>Contact Us</h2>
+                  <div class="contact-info">
+                    <div class="contact-item">
+                      <span class="material-symbols-outlined">location_on</span>
+                      <p>123 Main Street, Your City, State 12345</p>
+                    </div>
+                    <div class="contact-item">
+                      <span class="material-symbols-outlined">phone</span>
+                      <p>(888) 566-0253</p>
+                    </div>
+                    <div class="contact-item">
+                      <span class="material-symbols-outlined">email</span>
+                      <p>calendar@toddolivas.com</p>
+                    </div>
+                  </div>
+                  <div class="social_media_container">
+                    <h3>Follow Us</h3>
+                    <div class="social_media_links">
+                      <a
+                        href="https://www.facebook.com/toddolivas"
+                        target="_blank"
+                      >
+                        <span
+                          ><img src="../images/facebook.svg" alt="Facebook"
+                        /></span>
+                      </a>
+                      <a
+                        href="https://www.twitter.com/toddolivas"
+                        target="_blank"
+                      >
+                        <span
+                          ><img src="../images/x.svg" alt="X (Twitter)"
+                        /></span>
+                      </a>
+                      <a
+                        href="https://www.instagram.com/toddolivas"
+                        target="_blank"
+                      >
+                        <span
+                          ><img src="../images/instagram.svg" alt="Instagram"
+                        /></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="content-nav">
+            <!-- Mobile menu toggle button -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+              <li class="login_mobile">
+                <a href="#" class="nav-link active" data-target="mobile">
+                  <span class="material-symbols-outlined">login</span>
+                  <span>Login</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link" data-target="intro">
+                  <span class="material-symbols-outlined">business</span>
+                  <span>Our Services</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link" data-target="juicer_container">
+                  <span class="material-symbols-outlined">post</span>
+                  <span>Social Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link" data-target="contact_container">
+                  <span class="material-symbols-outlined">contact_mail</span>
+                  <span>Contact Us</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="right_container_content">
+          <!-- Login Form -->
+          <div class="login_container" id="desktop_login_container">
+            <div class="form_wrapper">
+              <div class="logo">
+                <img
+                  src="../images/TOA-Logo-Full.png"
+                  alt="TOA Logo"
+                  srcset=""
+                />
+              </div>
+              <form action="login.php" method="POST">
+                <h3 class="title">TO&A MODULE LOGIN</h3>
+                <label for="desktop_username">Username:</label>
+                <div class="form_input_container">
+                  <span class="material-symbols-outlined">account_circle</span>
+                  <input type="text" id="desktop_username" name="username" required />
+                </div>
+                <label for="desktop_password">Password:</label>
+                <div class="form_input_container">
+                  <span class="material-symbols-outlined">lock</span>
+                  <input
+                    type="password"
+                    id="desktop_password"
+                    name="password"
+                    required
+                  />
+                  <span
+                    class="material-symbols-outlined password-toggle"
+                    >visibility_off</span
+                  >
+                </div>
+                <div class="form_input_container">
+                  <button type="submit">
+                    <span class="material-symbols-outlined">login</span> Login
+                  </button>
+                </div>
+                <div class="forgot-password-container">
+                  <a
+                    href="#"
+                    class="forgot-password-link"
+                  >
+                    <span class="material-symbols-outlined">help</span>
+                    Forgot Password?
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Content navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".content-nav .nav-link");
+        const leftContents = document.querySelectorAll(".left_content");
+
+        function showContent(targetClass) {
+          // Hide all left content sections
+          leftContents.forEach((content) => {
+            content.style.display = "none";
+          });
+
+          // Show the target content
+          if (targetClass === "mobile") {
+            // Show mobile login container
+            const mobileLogin = document.querySelector(".left_content.mobile");
+            if (mobileLogin) {
+              mobileLogin.style.display = "flex";
+            }
+          } else if (targetClass === "intro") {
+            // Show intro content (Our Services) - has ID intro_container
+            const introElement = document.getElementById("intro_container");
+            if (introElement) {
+              introElement.style.display = "flex";
+            }
+          } else {
+            // Show other content by ID
+            const targetElement = document.getElementById(targetClass);
+            if (targetElement) {
+              targetElement.style.display = "flex";
+            }
+          }
+        }
+
+        // Add click event listeners to navigation links
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetContent = this.getAttribute("data-target");
+            showContent(targetContent);
+
+            // Update active state
+            navLinks.forEach((navLink) => navLink.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Initialize content based on screen size
+        function initializeContent() {
+          if (window.innerWidth <= 768) {
+            // Mobile: show login by default
+            showContent("mobile");
+            // Update active nav link
+            navLinks.forEach((navLink) => navLink.classList.remove("active"));
+            const mobileNavLink = document.querySelector('[data-target="mobile"]');
+            if (mobileNavLink) {
+              mobileNavLink.classList.add("active");
+            }
+          } else {
+            // Desktop: show intro by default (navigation is hidden anyway)
+            showContent("intro");
+            // Update active nav link
+            navLinks.forEach((navLink) => navLink.classList.remove("active"));
+            const introNavLink = document.querySelector('[data-target="intro"]');
+            if (introNavLink) {
+              introNavLink.classList.add("active");
+            }
+          }
+        }
+
+        // Initialize content on load
+        initializeContent();
+
+        // Re-initialize on window resize
+        window.addEventListener("resize", initializeContent);
+      });
+
+      // Mobile navigation toggle functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const navLinks = document.getElementById("navLinks");
+        const navOverlay = document.getElementById("navOverlay");
+
+        function toggleMobileNav() {
+          navLinks.classList.toggle("active");
+          navOverlay.classList.toggle("active");
+          
+          // Change hamburger icon to close icon and vice versa
+          const icon = mobileMenuToggle.querySelector("span");
+          if (navLinks.classList.contains("active")) {
+            icon.textContent = "close";
+          } else {
+            icon.textContent = "menu";
+          }
+        }
+
+        function closeMobileNav() {
+          navLinks.classList.remove("active");
+          navOverlay.classList.remove("active");
+          const icon = mobileMenuToggle.querySelector("span");
+          icon.textContent = "menu";
+        }
+
+        // Toggle navigation when hamburger button is clicked
+        if (mobileMenuToggle) {
+          mobileMenuToggle.addEventListener("click", toggleMobileNav);
+        }
+
+        // Close navigation when overlay is clicked
+        if (navOverlay) {
+          navOverlay.addEventListener("click", closeMobileNav);
+        }
+
+        // Close navigation when a nav link is clicked (optional)
+        const allNavLinks = document.querySelectorAll(".nav-links .nav-link");
+        allNavLinks.forEach(link => {
+          link.addEventListener("click", function() {
+            // Small delay to allow the content to change before closing
+            setTimeout(closeMobileNav, 100);
+          });
+        });
+
+        // Close navigation on window resize to desktop size
+        window.addEventListener("resize", function() {
+          if (window.innerWidth > 768) {
+            closeMobileNav();
+          }
+        });
+      });
+
+      // Password toggle functionality (works for both mobile and desktop forms)
+      document.addEventListener("click", function(e) {
+        if (e.target && e.target.classList.contains("password-toggle")) {
+          const toggleIcon = e.target;
+          const container = toggleIcon.closest(".form_input_container");
+          const passwordField = container.querySelector('input[type="password"], input[type="text"]');
+          
+          if (passwordField) {
+            if (passwordField.type === "password") {
+              passwordField.type = "text";
+              toggleIcon.textContent = "visibility";
+            } else {
+              passwordField.type = "password";
+              toggleIcon.textContent = "visibility_off";
+            }
+          }
+        }
+      });
+
+      // Forgot password functionality (works for both mobile and desktop forms)
+      document.addEventListener("click", function(e) {
+        if (e.target && e.target.classList.contains("forgot-password-link")) {
+          e.preventDefault();
+          const modal = document.getElementById("forgotPasswordModal");
+          modal.style.display = "flex";
+          document.getElementById("resetEmail").value = "";
+          document.getElementById("resetEmail").focus();
+        }
+      });
+
+      document
+        .getElementById("closeModal")
+        .addEventListener("click", function () {
+          document.getElementById("forgotPasswordModal").style.display = "none";
+        });
+
+      document
+        .getElementById("cancelReset")
+        .addEventListener("click", function () {
+          document.getElementById("forgotPasswordModal").style.display = "none";
+        });
+
+      document
+        .getElementById("sendResetEmail")
+        .addEventListener("click", function () {
+          const email = document.getElementById("resetEmail").value.trim();
+
+          if (email && email.includes("@")) {
+            alert("Password reset instructions have been sent to: " + email);
+            document.getElementById("forgotPasswordModal").style.display =
+              "none";
+          } else {
+            alert("Please enter a valid email address.");
+          }
+        });
+
+      window.addEventListener("click", function (e) {
+        const modal = document.getElementById("forgotPasswordModal");
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
